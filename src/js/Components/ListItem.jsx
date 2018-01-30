@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addReminder } from '../../redux/actionCreators';
 
-<<<<<<< HEAD
 /*eslint-disable */
-=======
->>>>>>> f2384c7a01a5a99c9299b3c9754635b3dd616b79
 class ListItem extends Component {
   render() {
     return (
@@ -13,11 +10,7 @@ class ListItem extends Component {
         {this.props.lists ? (
           this.props.lists.map((list, item) => {
             return (
-<<<<<<< HEAD
-              <div key={item} id={item}>
-=======
               <div key={item}>
->>>>>>> f2384c7a01a5a99c9299b3c9754635b3dd616b79
                 <h3>{list.name}</h3>
                 <form
                   key={item}
@@ -33,7 +26,6 @@ class ListItem extends Component {
                   />
                   <button type="submit">+</button>
                 </form>
-<<<<<<< HEAD
                 {list.reminders
                   ? list.reminders.map((reminder, i) => {
                       return (
@@ -43,8 +35,6 @@ class ListItem extends Component {
                       );
                     })
                   : ''}
-=======
->>>>>>> f2384c7a01a5a99c9299b3c9754635b3dd616b79
               </div>
             );
           })
@@ -56,22 +46,16 @@ class ListItem extends Component {
   }
 }
 
-<<<<<<< HEAD
 /*eslint-enable */
 
-=======
->>>>>>> f2384c7a01a5a99c9299b3c9754635b3dd616b79
 const mapStatetoProps = state => ({
   lists: state.lists
 });
 
 const mapDispatchtoProps = dispatch => ({
   handleReminder(event, key) {
-<<<<<<< HEAD
-=======
-    event.preventDefault();
->>>>>>> f2384c7a01a5a99c9299b3c9754635b3dd616b79
     dispatch(addReminder(event.target.reminder.value, key));
+    event.target.reminder.value = '';
   }
 });
 export default connect(mapStatetoProps, mapDispatchtoProps)(ListItem);
