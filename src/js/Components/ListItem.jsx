@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addReminder } from '../../redux/actionCreators';
 
+/*eslint-disable */
 class ListItem extends Component {
   render() {
     return (
@@ -25,6 +26,15 @@ class ListItem extends Component {
                   />
                   <button type="submit">+</button>
                 </form>
+                {list.reminders
+                  ? list.reminders.map((reminder, i) => {
+                      return (
+                        <div key={i}>
+                          <h4>{reminder}</h4>
+                        </div>
+                      );
+                    })
+                  : ''}
               </div>
             );
           })
@@ -36,14 +46,16 @@ class ListItem extends Component {
   }
 }
 
+/*eslint-enable */
+
 const mapStatetoProps = state => ({
   lists: state.lists
 });
 
 const mapDispatchtoProps = dispatch => ({
   handleReminder(event, key) {
-    event.preventDefault();
     dispatch(addReminder(event.target.reminder.value, key));
+    event.target.reminder.value = '';
   }
 });
 export default connect(mapStatetoProps, mapDispatchtoProps)(ListItem);

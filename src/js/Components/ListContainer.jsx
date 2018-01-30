@@ -26,6 +26,7 @@ const mapDispatchtoProps = dispatch => ({
   handleSubmit(event) {
     event.preventDefault();
     dispatch(addList(event.target.list.value));
+    // event.target.list.value = '';
   }
 });
 
